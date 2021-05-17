@@ -101,9 +101,9 @@ def flee():
 def what_to_do(bad_guy, weapon):
     decisions = valid_input("Do you fight or flee?\n", ["fight", "flee",
                             "friend", "chat", "talk", "neither"])
-    if "fight" in decisions:
+    if "fight" == decisions:
         fight(bad_guy, weapon)
-    elif "flee" in decisions:
+    elif "flee" == decisions:
         flee()
     else:
         friends(bad_guy, weapon)
@@ -113,29 +113,29 @@ def knocking(bad_guy, weapon):
     print_pause(f"After knocking, the {bad_guy[3]} opens the door.\n"
                 "With some hesistation, they motion you forward.")
     enter = valid_input("Do you enter?\n", ["y", "n"])
-    if "y" in enter:
+    if "y" == enter:
         print_pause(f"You enter the {bad_guy[0]}.")
         what_to_do(bad_guy, weapon)
-    if "n" in enter:
+    if "n" == enter:
         print_pause(f"You stand at the entrance of the {bad_guy[0]}.")
         what_to_do(bad_guy, weapon)
 
 
 def investigate(bad_guy, weapon):
     investigate = valid_input("Would you like to investigate?\n", ["y", "n"])
-    if "y" in investigate:
+    if "y" == investigate:
         get_artifact = valid_input("\nYou currently have your old dagger on"
                                    " you.\n"
                                    f"Your famed {weapon[0]} of {weapon[1]} is"
                                    " back at your house.\n"
                                    "But that's in the other direction! Would"
                                    " you like to retrieve it?\n", ["y", "n"])
-        if "y" in get_artifact:
+        if "y" == get_artifact:
             print_pause(f"You head back home and pick up your {weapon[0]}.")
             print_pause(f"You then go to the {bad_guy[0]}"
                         f" by the {bad_guy[1]}.")
             knocking(bad_guy, weapon)
-        if "n" in get_artifact:
+        if "n" == get_artifact:
             weapon = ["dagger", "nothing"]
             print_pause(f"You head to the {bad_guy[0]}"
                         f" by the the {bad_guy[1]}.")
@@ -151,7 +151,7 @@ def investigate(bad_guy, weapon):
 def play_again():
     play = valid_input("\nWould you like to play again?\n", ["y", "n"])
 
-    if "n" in play:
+    if "n" == play:
         print("Thank you for playing!")
     else:
         play_game()
