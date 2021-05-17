@@ -12,7 +12,7 @@ def valid_input(message, options):
         response = input(message).lower()
         time.sleep(1)
         for option in options:
-            if option in response:
+            if option == response:
                 return response
         print_pause("I am sorry, I don't understand.")
 
